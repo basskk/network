@@ -1,0 +1,12 @@
+FROM ubuntu:latest 
+
+RUN apt update -y && \
+    apt upgrade -y && \
+    apt install -y \
+    git python3
+
+WORKDIR /application
+COPY app_server.py .
+
+ENTRYPOINT [ "python3", "app_server.py" ]
+
